@@ -53,6 +53,8 @@ Page({
       "../../images/7.png",
       "../../images/8.png",
       "../../images/9.png",
+      "../../images/11.png",
+      "../../images/10.png",
     ],
     bottomimg:[
       "//img12.360buyimg.com/cms/jfs/t21640/28/1213004791/32137/61b7449b/5b228246N3619a7da.png",
