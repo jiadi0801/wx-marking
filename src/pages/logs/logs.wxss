@@ -45,11 +45,18 @@ page{
   margin-bottom: 15rpx;
 }
 .log-list .function-list navigator .cooperation{
-   width: 61rpx;
+  width: 61rpx;
   height: 69rpx;
   background: url('//img12.360buyimg.com/cms/jfs/t20878/240/1179847000/2900/5fdcc38/5b222026Nf0c8550f.png');
   background-size: 61rpx 69rpx;
   margin: 0 auto;
   margin-top: 25rpx;
   margin-bottom: 30rpx;
+}
+.bottom{
+  width: 750rpx;
+  height: 381rpx;
+  margin-top: 130rpx;
+  background: url('//img30.360buyimg.com/cms/jfs/t22612/29/26706226/24666/97c0c23e/5b232ca0N449d6466.jpg');
+  background-size: 750rpx 381rpx;
 }

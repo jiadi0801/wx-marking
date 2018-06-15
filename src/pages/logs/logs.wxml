@@ -2,7 +2,7 @@
 <view class="container log-list">
   <view class='banner'></view>
   <view class='function-list'>
-    <navigator url="../index/index">
+    <navigator url="../ld-cropper/ld-cropper">
       <view class='head'></view>
     美化头像
     </navigator>
@@ -11,4 +11,5 @@
     定制合作
     </navigator>
   </view>
+  <view class='bottom'></view>
 </view>
