@@ -1,0 +1,14 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <view class='banner'></view>
+  <view class='function-list'>
+    <navigator url="../index/index">
+      <view class='head'></view>
+    美化头像
+    </navigator>
+    <navigator url="../hezuo/hezuo">
+      <view class='cooperation'></view>
+    定制合作
+    </navigator>
+  </view>
+</view>

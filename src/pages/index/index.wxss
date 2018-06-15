@@ -1,0 +1,101 @@
+/**index.wxss**/
+.container {
+  width: 750rpx;
+  height: 695rpx;
+  padding-top: 55rpx;
+  background: url('//img10.360buyimg.com/cms/jfs/t24460/176/1184913/72918/679eeb40/5b223842Ndfc997c6.png');
+  background-size: 750rpx 750rpx;
+}
+.imgcon{
+  width: 750rpx;
+  height: 695rpx;
+  overflow: hidden;
+}
+.userinfo{
+  width: 640rpx;
+  height: 640rpx;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+.userinfo .userinfo-avatar {
+  width: 640rpx;
+  height: 640rpx;
+  position: absolute;
+  left: 0rpx;
+  top:0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+.userinfo .biaoimg{
+  position: absolute;
+  display: block;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9;
+  width: 640rpx;
+  height: 640rpx;
+}
+.section{
+  margin-top: 20rpx;
+  padding: 0 50rpx;
+}
+.section .sectiontitle{
+  display: block;
+  width: 280rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  color: #fff;
+  background: url("//img12.360buyimg.com/cms/jfs/t24490/293/10924016/2679/22e43115/5b227625N6b73b9fb.png");
+  margin-bottom: 50rpx;
+  background-size: 280rpx 60rpx;
+  text-align: center;
+}
+.img-list-con{
+  width: 750rpx;
+  height: 230rpx;
+  overflow: hidden;
+  margin-top: 60rpx;
+  background-color: #ebb1ec;
+}
+.img-list-con .bottomimglist{
+  width: 100%;
+  white-space: nowrap;
+  height: 190rpx;
+  padding-top: 20rpx;
+  padding-left: 15rpx;
+}
+.img-list-con .bottomimglist .biao{
+  width: 150rpx;
+  height: 190rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+.img-list-con .bottomimglist .biao image{
+  width: 150rpx;
+  height: 190rpx;
+}
+.btn{
+  width: 640rpx;
+  height: 90rpx;
+  margin-top: 40rpx;
+  margin-left: 55rpx;
+  border-radius: 40rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 12rpx 0 rgba(47,116,239,0.22);
+  margin-bottom: 10rpx;
+}
+.btn view{
+  width: 318rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #333;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5rpx;
+}
+.btn .apload{
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
