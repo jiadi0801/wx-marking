@@ -1,0 +1,45 @@
+<!--pages/ld-cropper/ld-cropper.wxml-->
+<view style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;"></view>
+<view class="wx-corpper-content" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;">
+  <scroll-view scroll-y="true" scroll-x="true" style="box-sizing:border-box;width:{{cropperW}}rpx;height:{{cropperH}}rpx;">
+    <image id="imgRect" class="paddingclass" catchtouchmove="disMove" src="{{imgSrc}}" style="width: {{imgWidth}}rpx;height: {{imgHeight}}rpx;"></image>
+  </scroll-view>
+  <image wx:if="{{tagSrc}}" class="tag-prev" src="{{tagSrc}}" style="width:{{boxWidth}}rpx;height:{{boxHeight}}rpx;left:{{boxLeft}}rpx;top:{{boxTop}}rpx" />
+  <view class="wx-corpper-crop-box" bindtouchstart="contentStartMove" bindtouchmove="contentMoving" style="width:{{boxWidth}}rpx;height:{{boxHeight}}rpx;left:{{boxLeft}}rpx;top:{{boxTop}}rpx">
+    <view class="wx-cropper-view-box">
+      <view class="wx-cropper-line-t" data-drag="top"></view>
+      <view class="wx-cropper-line-r" data-drag="right"></view>
+      <view class="wx-cropper-line-b" data-drag="bottom"></view>
+      <view class="wx-cropper-line-l" data-drag="left"></view>
+      <view class="wx-cropper-point point-t" data-drag="top"></view>
+      <view class="wx-cropper-point point-tr" data-drag="topTight"></view>
+      <view class="wx-cropper-point point-r" data-drag="right"></view>
+      <view class="wx-cropper-point point-rb" data-drag="rightBottom"></view>
+      <view class="wx-cropper-point point-b" data-drag="bottom"></view>
+      <view class="wx-cropper-point point-bl" data-drag="bottomLeft"></view>
+      <view class="wx-cropper-point point-l" data-drag="left"></view>
+      <view class="wx-cropper-point point-lt" data-drag="leftTop"></view>
+    </view>
+  </view>
+</view>
+<view style="height:0;overflow:hidden;position:relative;">
+  <canvas canvas-id="myCanvas_A" style="margin-left:999rpx;width:{{boxWidth}}px;height:{{boxHeight}}px;transform:scale(0.001)"/>
+</view>
+<view class='img-list-con'>
+  <scroll-view class='bottomimglist' scroll-x style="width: 100%">
+    <view class='biao'
+    bindtap="chosethis" 
+    wx:for="{{bottomimg}}"
+    wx:for-index="bottindex"
+    wx:key="{{bottindex}}"
+    data-index="{{bottindex}}"
+    wx:for-item="bottimg">
+      <image src="{{bottimg}}"></image>
+    </view>
+  </scroll-view>
+</view>
+<view class='btn'>
+  <view class='apload' bindtap="chosePic">上传头像</view>
+  <view class='save' bindtap="onGen">生成图片</view>
+</view>
+<!-- <image src="{{genSrc}}" style="width: {{boxWidth}}rpx;height: {{boxWidth}}rpx;"></image> -->
