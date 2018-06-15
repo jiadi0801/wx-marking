@@ -63,7 +63,9 @@ Page({
       "//img12.360buyimg.com/cms/jfs/t20791/276/1236354733/34605/5f3b6693/5b2282f3Nceb0c288.png",
       "//img10.360buyimg.com/cms/jfs/t23044/122/12079695/33301/19d0bbd5/5b2282deNcefaf6c3.png",
       "//img14.360buyimg.com/cms/jfs/t24484/156/14583120/39476/db0444c9/5b228303N6d1def01.png",
-      "//img20.360buyimg.com/cms/jfs/t20593/195/1232200622/29797/dae042e4/5b228312N580974fc.png"
+      "//img20.360buyimg.com/cms/jfs/t20593/195/1232200622/29797/dae042e4/5b228312N580974fc.png",
+      "//img10.360buyimg.com/cms/jfs/t19987/43/1686453501/30110/c259dd2e/5b236d2dN2f040b43.png",
+      "//img13.360buyimg.com/cms/jfs/t21421/305/1298137919/33035/9941ad4a/5b236d33N2694a5c4.png"
     ]
   },
 
