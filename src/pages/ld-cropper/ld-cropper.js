@@ -13,6 +13,7 @@ var boxRealPx = 640
 var prevDistance = 0;
 var x0,y0,x1,y1;
 
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -36,6 +37,7 @@ Page({
     cutPosX: 0,
     cutPosY: 0,
 
+    wxLocalSrc: '', // 下载到本地的微信头像
     imgSrc: '',  // 头像
     tagSrc: '',  // 角标
     genSrc: '',  // 生成图片
@@ -80,39 +82,43 @@ Page({
         this.setData({
           imgSrc: res.tempFilePaths[0],
         });
-        wx.getImageInfo({
-          src: res.tempFilePaths[0],
-          success: res => {
-            let {width, height} = res;
-            let whratio = width / height;
-            if (width < this.data.boxWidth || height < this.data.boxHeight) {
-              if (height < width) {
-                this.setData({
-                  imgOriginWidth: this.data.boxWidth,
-                  imgOriginHeight: this.data.boxWidth * whratio,
-                  imgHeight: this.data.boxWidth,
-                  imgWidth: this.data.boxWidth * whratio,
-                });
-              } else {
-                this.setData({
-                  imgOriginWidth: this.data.boxWidth,
-                  imgOriginHeight: this.data.boxWidth / whratio,
-                  imgWidth: this.data.boxWidth,
-                  imgHeight: this.data.boxWidth / whratio,
-                });
-              }
-            } else {
-              this.setData({
-                imgOriginWidth: width,
-                imgOriginHeight: height,
-                imgWidth: width,
-                imgHeight: height,
-              });
-            }
-          }
-        });
+        this.getImgInfo(res.tempFilePaths[0]);
       }
     })
+  },
+
+  getImgInfo(imgUrl) {
+    wx.getImageInfo({
+      src: imgUrl,
+      success: res => {
+        let {width, height} = res;
+        let whratio = width / height;
+        if (width < this.data.boxWidth || height < this.data.boxHeight) {
+          if (height < width) {
+            this.setData({
+              imgOriginWidth: this.data.boxWidth,
+              imgOriginHeight: this.data.boxWidth * whratio,
+              imgHeight: this.data.boxWidth,
+              imgWidth: this.data.boxWidth * whratio,
+            });
+          } else {
+            this.setData({
+              imgOriginWidth: this.data.boxWidth,
+              imgOriginHeight: this.data.boxWidth / whratio,
+              imgWidth: this.data.boxWidth,
+              imgHeight: this.data.boxWidth / whratio,
+            });
+          }
+        } else {
+          this.setData({
+            imgOriginWidth: width,
+            imgOriginHeight: height,
+            imgWidth: width,
+            imgHeight: height,
+          });
+        }
+      }
+    });
   },
 
   contentStartMove({touches}) {
@@ -161,6 +167,18 @@ Page({
   },
 
   onGen() {
+    if (!this.data.imgSrc) {
+      wx.showToast({
+        title: '请选择头像'
+      });
+      return;
+    }
+    if (!this.data.tagSrc) {
+      wx.showToast({
+        title: '请选择角标'
+      });
+      return;
+    }
     wx.showLoading({
       title: '正在生成'
     });
@@ -191,13 +209,16 @@ Page({
           canvasId: 'myCanvas_A',
           success: res => {
             wx.hideLoading();
+            const tmpPath = res.tempFilePath;
             wx.saveImageToPhotosAlbum({
-              filePath: res.tempFilePath,
-              success: res=>{
+              filePath: tmpPath,
+              success: res => {
                 wx.showToast({
                   title: '生成成功'
                 });
-                ctx_A.fillRect(0, 0, this.data.boxWidth, this.data.boxHeight);
+                wx.previewImage({
+                    urls: [tmpPath]
+                });
               },
               fail: err => {
                 console.log(err);
@@ -222,7 +243,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -236,7 +257,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (!app.globalData.userInfo) return;
+    console.log(app.globalData.userInfo)
+    this.setData({
+      userInfo: app.globalData.userInfo || {},
+    });
 
+    if (this.data.wxLocalSrc) return;
+
+    let avatarUrl = app.globalData.userInfo.avatarUrl.replace(/132/, '0');
+    wx.downloadFile({
+      url: avatarUrl,
+      success: res => {
+        console.log(res.tempFilePath);
+        this.setData({
+          wxLocalSrc: res.tempFilePath,
+          imgSrc: res.tempFilePath,
+        });
+        this.getImgInfo(res.tempFilePath);
+      }
+    });
   },
 
   /**

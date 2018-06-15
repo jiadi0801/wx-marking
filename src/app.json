@@ -1,15 +1,15 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/ld-cropper/ld-cropper",
     "pages/shengcheng/shengcheng",
     "pages/logs/logs",
-    "pages/ld-cropper/ld-cropper",
-    "pages/index/index",
     "pages/hezuo/hezuo"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#6920cc",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "狗厂里的猫",
     "navigationBarTextStyle":"white"
   }
 }

@@ -1,39 +1,15 @@
-<!--index.wxml-->
-<view class="container">
-  <view class='imgcon'>
-    <view class="userinfo">
-      <image class="userinfo-avatar" src="{{headeimgsrc}}"></image>
-      <image class='biaoimg' src="{{itemimg}}" 
-      wx:for="{{biaoimg}}" wx:for-index="idx" wx:for-item="itemimg"
-      wx-if="{{currentindex == idx}}"></image>
-    </view>
+<!--logs.wxml-->
+<view class="container log-list">
+  <view class='banner'></view>
+  <view class='function-list'>
+    <button class=".navigator" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <view class='head'></view>
+      <text>美化头像</text>
+    </button>
+    <navigator url="../hezuo/hezuo">
+      <view class='cooperation'></view>
+    定制合作
+    </navigator>
   </view>
-  <view class="section section_gap">
-    <text class="sectiontitle">头像缩放(100%)</text>
-    <view class="body-view">
-      <slider
-      bindchange="slider4change"
-      min="50" max="200"
-      activeColor="#923be2"
-      block-color="#dabcfa"
-      block-size="24"
-      show-value/>
-    </view>
-  </view>
-  <view class='img-list-con'>
-    <scroll-view class='bottomimglist' scroll-x style="width: 100%">
-      <view class='biao'
-      bindtap="changeimg" 
-      wx:for="{{bottomimg}}"
-      wx:for-index="bottindex"
-      id="{{bottindex}}"
-      wx:for-item="bottimg">
-        <image src="{{bottimg}}"></image>
-      </view>
-    </scroll-view>
-  </view>
-  <view class='btn'>
-    <view class='apload'>上传头像</view>
-    <view class='save'>生成图片</view>
-  </view>
+  <view class='bottom'></view>
 </view>

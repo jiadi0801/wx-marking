@@ -1,0 +1,18 @@
+page{
+  height: 1270rpx;
+  width: 750rpx;
+}
+.log-list {
+  height: 1270rpx;
+  width: 750rpx;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.log-list .bg {
+  width: 750rpx;
+  height: 1270rpx;
+  overflow: hidden;
+  background: url("//img12.360buyimg.com/cms/jfs/t21316/181/1230134595/116434/79f005ed/5b235f41N6b303d85.jpg");
+  background-size: 750rpx 1270rpx;
+}
