@@ -1,0 +1,35 @@
+<!--pages/ld-cropper/ld-cropper.wxml-->
+<view style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;"></view>
+<view class="wx-corpper-content" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;">
+  <scroll-view scroll-y="true" scroll-x="true" style="box-sizing:border-box;width:{{cropperW}}rpx;height:{{cropperH}}rpx;">
+    <image id="imgRect" class="paddingclass" catchtouchmove="disMove" src="{{imgSrc}}" style="width: {{imgWidth}}rpx;height: {{imgHeight}}rpx;"></image>
+  </scroll-view>
+  <image wx:if="{{tagSrc}}" class="tag-prev" src="{{tagSrc}}" style="width:{{boxWidth}}rpx;height:{{boxHeight}}rpx;left:{{boxLeft}}rpx;top:{{boxTop}}rpx" />
+  <view class="wx-corpper-crop-box" bindtouchstart="contentStartMove" bindtouchmove="contentMoving" style="width:{{boxWidth}}rpx;height:{{boxHeight}}rpx;left:{{boxLeft}}rpx;top:{{boxTop}}rpx">
+    <view class="wx-cropper-view-box">
+      <view class="wx-cropper-line-t" data-drag="top"></view>
+      <view class="wx-cropper-line-r" data-drag="right"></view>
+      <view class="wx-cropper-line-b" data-drag="bottom"></view>
+      <view class="wx-cropper-line-l" data-drag="left"></view>
+      <view class="wx-cropper-point point-t" data-drag="top"></view>
+      <view class="wx-cropper-point point-tr" data-drag="topTight"></view>
+      <view class="wx-cropper-point point-r" data-drag="right"></view>
+      <view class="wx-cropper-point point-rb" data-drag="rightBottom"></view>
+      <view class="wx-cropper-point point-b" data-drag="bottom"></view>
+      <view class="wx-cropper-point point-bl" data-drag="bottomLeft"></view>
+      <view class="wx-cropper-point point-l" data-drag="left"></view>
+      <view class="wx-cropper-point point-lt" data-drag="leftTop"></view>
+    </view>
+  </view>
+</view>
+<button class="btn" type="primary" bindtap="chosePic">选择照片</button>
+<button class="btn" type="primary" bindtap="onGen">生成</button>
+<view style="height:0;overflow:hidden;">
+  <canvas canvas-id="myCanvas_A" style="width:{{boxWidth}}rpx;height:{{boxHeight}}rpx;"/>
+</view>
+<scroll-view scroll-x="true">
+  <view class="tag-wrap">
+    <image wx:for="{{tagList}}" wx:key="index" class="tag-item" data-index="{{index}}" src="{{item}}" bindtap="chosethis"></image>
+  </view>
+</scroll-view>
+<!-- <image src="{{genSrc}}" style="width: {{boxWidth}}rpx;height: {{boxWidth}}rpx;"></image> -->
