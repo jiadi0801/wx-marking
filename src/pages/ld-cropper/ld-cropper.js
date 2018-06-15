@@ -266,11 +266,17 @@ Page({
     if (this.data.wxLocalSrc) return;
 
     let avatarUrl = app.globalData.userInfo.avatarUrl.replace(/132/, '0');
-    this.setData({
-      wxLocalSrc: avatarUrl,
-      imgSrc: avatarUrl,
+    wx.downloadFile({
+      url: avatarUrl,
+      success: res => {
+        console.log(res.tempFilePath);
+        this.setData({
+          wxLocalSrc: res.tempFilePath,
+          imgSrc: res.tempFilePath,
+        });
+        this.getImgInfo(res.tempFilePath);
+      }
     });
-    this.getImgInfo(avatarUrl);
   },
 
   /**
