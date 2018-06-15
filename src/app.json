@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/logs/logs",
+    "pages/ld-cropper/ld-cropper",
     "pages/index/index",
+    "pages/logs/logs",
     "pages/hezuo/hezuo"
   ],
   "window":{
